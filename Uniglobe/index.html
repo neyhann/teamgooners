@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Uniglobe College</title>
+      <link rel="stylesheet" href="css/index.css">
+      <link rel="stylesheet" href="css/index-responsive.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+   </head>
+
+   <body>
+      <div class="coverDiv" id="home">
+         <header class="mainHeader">
+                        <section class="logoSec">
+               <img src="img/ugsslogo.png" alt="Uniglobe College Logo" style="height:52px; width:auto; vertical-align:middle; margin-right:12px; filter: brightness(1.1) contrast(1.1);">
+               <span style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.4rem; color: #ffffff; letter-spacing: -0.02em;">Uniglobe College</span> 
+            </section>
+
+            <section class="navItems" id="navItems">
+               <span><a href="#home">Home</a></span>
+               <span><a href="#programs">Programs</a></span>
+               <span><a href="#campus">Campus</a></span>
+               <span><a href="#facilities">Facilities</a></span>
+               <span><a href="#testimonials">Testimonials</a></span>
+               <span><a href="#contact">Contact</a></span>
+               <span><a href="#about">About</a></span>
+            </section>
+
+            <section class="hamburgerIcon" id="hamburgerIcon" onclick="toggleSidebar()">
+               <i class="fa-solid fa-bars"></i>
+            </section>
+         </header>
+
+         <!-- Sidebar Menu -->
+         <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+               <h3><i class="fa-solid fa-graduation-cap"></i> Uniglobe Menu</h3>
+               <button class="close-sidebar" onclick="toggleSidebar()">
+                  <i class="fa-solid fa-times"></i>
+               </button>
+            </div>
+            
+            <div class="sidebar-content">
+               <!-- FAQ Section -->
+               <div class="sidebar-section">
+                  <h4><i class="fa-solid fa-question-circle"></i> FAQs</h4>
+                  <div class="faq-list">
+                     <details>
+                        <summary>What programs does Uniglobe offer?</summary>
+                        <p>Uniglobe offers +2 programs in Science, Management, and Law, preparing students for 21st century success.</p>
+                     </details>
+                     <details>
+                        <summary>Where is Uniglobe located?</summary>
+                        <p>Uniglobe Secondary School is located in Kathmandu, Nepal, providing quality education in a supportive environment.</p>
+                     </details>
+                     <details>
+                        <summary>What facilities are available?</summary>
+                        <p>We offer modern classrooms, well-equipped laboratories, a comprehensive library, sports facilities, and a modern canteen.</p>
+                     </details>
+                     <details>
+                        <summary>How can I apply for admission?</summary>
+                        <p>Contact us through our website or visit our campus for detailed admission procedures and requirements.</p>
+                     </details>
+                  </div>
+               </div>
+
+               <!-- Virtual Tour Section -->
+               <div class="sidebar-section">
+                  <h4><i class="fa-solid fa-video"></i> Virtual Tour</h4>
+                  <p>Experience our campus virtually with our immersive video tour.</p>
+                  <div class="video-container">
+                     <video id="virtualTourVideo" controls>
+                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                     </video>
+                     <div class="video-controls">
+                        <button class="video-btn" onclick="openVideoModal()">
+                           <i class="fa-solid fa-play"></i> Full Screen Tour
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Clubs Section -->
+               <div class="sidebar-section">
+                  <h4><i class="fa-solid fa-users"></i> Clubs in Uniglobe</h4>
+                  <div class="clubs-list">
+                     <div class="club-item">
+                        <h5><i class="fa-solid fa-flask"></i> Science Club</h5>
+                        <p>Explore scientific discoveries and conduct experiments</p>
+                     </div>
+                     <div class="club-item">
+                        <h5><i class="fa-solid fa-chart-line"></i> Business Club</h5>
+                        <p>Develop entrepreneurial skills and business acumen</p>
+                     </div>
+                     <div class="club-item">
+                        <h5><i class="fa-solid fa-gavel"></i> Debate Club</h5>
+                        <p>Enhance public speaking and critical thinking</p>
+                     </div>
+                     <div class="club-item">
+                        <h5><i class="fa-solid fa-palette"></i> Arts & Culture</h5>
+                        <p>Express creativity through various art forms</p>
+                     </div>
+                     <div class="club-item">
+                        <h5><i class="fa-solid fa-futbol"></i> Sports Club</h5>
+                        <p>Stay active and build teamwork skills</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- MIS Section -->
+               <div class="sidebar-section">
+                  <h4><i class="fa-solid fa-laptop"></i> MIS (Management Information System)</h4>
+                  <p>Access your academic information and resources.</p>
+                  <div class="mis-links">
+                     <a href="#" class="mis-link">
+                        <i class="fa-solid fa-user-graduate"></i> Student Portal
+                     </a>
+                     <a href="#" class="mis-link">
+                        <i class="fa-solid fa-chalkboard-teacher"></i> Faculty Portal
+                     </a>
+                     <a href="#" class="mis-link">
+                        <i class="fa-solid fa-calendar-check"></i> Attendance
+                     </a>
+                     <a href="#" class="mis-link">
+                        <i class="fa-solid fa-chart-bar"></i> Results
+                     </a>
+                  </div>
+               </div>
+
+               <!-- Events Calendar Section -->
+               <div class="sidebar-section">
+                  <h4><i class="fa-solid fa-calendar-alt"></i> Events Calendar</h4>
+                  <div class="events-list">
+                     <div class="event-item">
+                        <div class="event-date">
+                           <span class="day">15</span>
+                           <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                           <h5>Annual Sports Meet</h5>
+                           <p>Inter-house sports competition</p>
+                        </div>
+                     </div>
+                     <div class="event-item">
+                        <div class="event-date">
+                           <span class="day">20</span>
+                           <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                           <h5>Science Exhibition</h5>
+                           <p>Student project showcase</p>
+                        </div>
+                     </div>
+                     <div class="event-item">
+                        <div class="event-date">
+                           <span class="day">25</span>
+                           <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                           <h5>Christmas Celebration</h5>
+                           <p>Cultural program and festivities</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Video Modal for Virtual Tour -->
+         <div class="video-modal" id="videoModal">
+            <div class="video-modal-content">
+               <div class="video-modal-header">
+                  <h3><i class="fa-solid fa-video"></i> Virtual Campus Tour</h3>
+                  <button class="close-modal" onclick="closeVideoModal()">
+                     <i class="fa-solid fa-times"></i>
+                  </button>
+               </div>
+               <div class="video-modal-body">
+                  <video id="modalVideo" controls>
+                     <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                  </video>
+               </div>
+            </div>
+         </div>
+
+         <div class="mainDiv">
+            <section class="mainSec fade-in">
+               <h1 style="text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; font-size: 4rem; letter-spacing: -0.02em;"><span style="color: #FFFFFF;">Bringing</span><br><span style="color: #32CD32;">the best together!</span></h1>
+                                <p style="font-size: 1.3rem; font-weight: 400; color: #f0f0f0; max-width: 600px; margin: 0 auto 2rem auto;">
+                   Uniglobe Secondary School in Kathmandu offers +2 programs in Science, Management, and Law, preparing students for 21st century success.
+                 </p>
+               <a href="#" style="display: inline-block; background-color: #FFD700; color: #333; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3); border: 2px solid #FFD700;">Be a Uniglobian!</a>
+            </section>
+         </div>
+      </div>
+
+
+      <div class="divTwo" id="programs">
+         <section class="headingSec fade-in">
+            <h1><span style="background: linear-gradient(135deg, #4A90E2, #357ABD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">What does</span> <span style="background: linear-gradient(135deg, #2E5BBA, #1E3A8A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Uniglobe Offer?</span></h1>
+            <p>
+               Uniglobe Secondary School believes in fostering a supportive and collaborative learning environment. 
+               Our dedicated faculty and staff work together to guide students not only academically but also in 
+               developing critical thinking and social responsibility. We go beyond traditional lectures to create 
+               an engaging learning environment that blends theoretical knowledge with practical application.
+            </p>
+         </section>
+
+         <section class="firstSec">
+            <section class="courseSec slide-in-left">
+               <h3>Science Program</h3>
+               <p>
+                  Uniglobe Secondary School's Science faculty is dedicated to fostering students' love for scientific discovery. 
+                  Led by passionate and experienced educators, our curriculum delves deep into core scientific principles while 
+                  encouraging critical thinking, experimentation, and problem-solving skills. Our well-equipped laboratories offer 
+                  a dynamic learning space where students can actively engage in hands-on experimentation.
+               </p>
+            </section>
+
+            <section class="courseSec fade-in">
+               <h3>Management Program</h3>
+               <p>
+                  Uniglobe Secondary School Management faculty empowers you to become a future leader in the ever-evolving business world. 
+                  Our dynamic curriculum, led by industry experts, blends theoretical knowledge with practical skills development. 
+                  Students will explore areas like marketing, finance, human resources, and entrepreneurship, understanding modern 
+                  business practices comprehensively.
+               </p>
+            </section>
+
+            <section class="courseSec slide-in-right">
+               <h3>Law Program</h3>
+               <p>
+                  Uniglobe Secondary School Law faculty ignites a passion for justice and equips you with the foundational knowledge 
+                  to excel in the legal field. Our esteemed faculty, with real-world experience, guides you through the complications 
+                  of the law, emphasising critical analysis, persuasive writing, and effective communication. Through interactive 
+                  lectures and mock trials, students acquire practical legal expertise.
+               </p>
+            </section>
+         </section>
+      </div>
+
+
+      <div class="divThree" id="campus">
+         <section class="headingSec">
+            <h1><span style="background: linear-gradient(135deg, #4A90E2, #357ABD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Our</span> <span style="background: linear-gradient(135deg, #2E5BBA, #1E3A8A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Global Campus</span></h1>
+            <p>
+               Discover a world of opportunities at Uniglobe College's global campus. Immerse 
+               in diverse perspectives, collaborate globally, and broaden your horizons. Join us 
+               in transcending boundaries and exploring the world.
+            </p>
+         </section>
+
+         <section class="firstSec">
+            <section class="imgSec" style="--university: 'LONDON' ">
+               <img src="img/building-1.jpg" alt="University building">
+            </section>
+            <section class="imgSec" style="--university: 'NEW YORK' ">
+               <img src="img/building-2.jpg" alt="University building">
+            </section>
+            <section class="imgSec" style="--university: 'WASHINGTON' ">
+               <img src="img/building-3.jpg" alt="University building">
+            </section>
+         </section>
+      </div>
+
+
+      <div class="divFour" id="facilities">
+         <section class="headingSec">
+            <h1><span style="background: linear-gradient(135deg, #4A90E2, #357ABD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Our</span> <span style="background: linear-gradient(135deg, #2E5BBA, #1E3A8A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Facilities</span></h1>
+            <p>
+               Explore modern classrooms, well-equipped labs, and libraries for academic success, fueled by healthy meals in our canteen 
+               and enriching extracurricular activities for a well-rounded you. Our facilities are designed to create a dynamic learning 
+               environment that supports both academic excellence and personal growth.
+            </p>
+         </section>
+
+         <section class="firstSec">
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/students in library.jpg" alt="Picture of our Library">
+               </section>
+
+               <h3>Modern Library</h3>
+
+               <p>
+                  Our vast library provides comprehensive resources for research and study. 
+                  With a wide collection of books, digital resources, and comfortable study spaces, 
+                  students can immerse themselves in knowledge and academic excellence.
+               </p>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/students playing.jpg" alt="Picture of our Playground">
+               </section>
+
+               <h3>Sports Facilities</h3>
+
+               <p>
+                  Our sports facilities encourage physical fitness and teamwork. From basketball courts 
+                  to indoor sports areas, students can engage in various athletic activities that promote 
+                  health, discipline, and sportsmanship.
+               </p>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/students eating.jpg" alt="Picture of our Cafeteria">
+               </section>
+
+               <h3>Modern Canteen</h3>
+
+               <p>
+                  Our canteen serves healthy and nutritious meals, providing students with the energy 
+                  they need for their academic pursuits. It's also a great place for social interaction 
+                  and building friendships over meals.
+               </p>
+            </section>
+         </section>
+
+         <!-- Why Choose Uniglobe Section -->
+         <section class="why-choose-section">
+            <div class="why-choose-container">
+               <div class="why-choose-header">
+                  <div class="header-dots">
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                  </div>
+                  <h2>UNIGLOBE COLLEGE</h2>
+                  <div class="header-dots">
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                  </div>
+               </div>
+               
+               <h1 class="why-choose-title">Why Choose Uniglobe</h1>
+               
+               <div class="why-choose-content">
+                  <div class="central-figure">
+                     <div class="student-image-placeholder">
+                        <i class="fa-solid fa-user-graduate" style="font-size: 4rem; color: rgba(255,255,255,0.8);"></i>
+                        <p style="color: rgba(255,255,255,0.8); margin-top: 10px; font-size: 1rem;">Student Image</p>
+                     </div>
+                  </div>
+                  
+                  <div class="reasons-grid">
+                     <div class="reason-item left-reason">
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <span class="icon-number">11</span>
+                              <span class="icon-text">Years</span>
+                           </div>
+                           <div class="reason-number">01</div>
+                        </div>
+                        <div class="reason-text">
+                           <h3>11 Years of Excellence in Education</h3>
+                           <p>Decades of proven academic excellence and student success</p>
+                        </div>
+                     </div>
+                     
+                     <div class="reason-item left-reason">
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <i class="fa-solid fa-trophy"></i>
+                              <span class="icon-text">Awards</span>
+                           </div>
+                           <div class="reason-number">02</div>
+                        </div>
+                        <div class="reason-text">
+                           <h3>Winner of Numerous National and Regional Awards</h3>
+                           <p>Recognized for outstanding educational achievements and innovation</p>
+                        </div>
+                     </div>
+                     
+                     <div class="reason-item left-reason">
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <i class="fa-solid fa-flask"></i>
+                              <span class="icon-text">Labs</span>
+                           </div>
+                           <div class="reason-number">03</div>
+                        </div>
+                        <div class="reason-text">
+                           <h3>Well-Equipped Science and Computer Laboratories</h3>
+                           <p>State-of-the-art facilities for hands-on learning and research</p>
+                        </div>
+                     </div>
+                     
+                     <div class="reason-item right-reason">
+                        <div class="reason-text">
+                           <h3>Highly Trained and Experienced Teachers</h3>
+                           <p>Expert faculty dedicated to student success and growth</p>
+                        </div>
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <i class="fa-solid fa-chalkboard-teacher"></i>
+                              <span class="icon-text">Teachers</span>
+                           </div>
+                           <div class="reason-number">04</div>
+                        </div>
+                     </div>
+                     
+                     <div class="reason-item right-reason">
+                        <div class="reason-text">
+                           <h3>ECA Training by National-Level Coaches</h3>
+                           <p>Extracurricular activities led by professional coaches and mentors</p>
+                        </div>
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <i class="fa-solid fa-futbol"></i>
+                              <span class="icon-text">Sports</span>
+                           </div>
+                           <div class="reason-number">05</div>
+                        </div>
+                     </div>
+                     
+                     <div class="reason-item right-reason">
+                        <div class="reason-text">
+                           <h3>Psychosocial and Career Counsellors Available</h3>
+                           <p>Comprehensive support for mental health and career guidance</p>
+                        </div>
+                        <div class="reason-icon">
+                           <div class="icon-circle">
+                              <i class="fa-solid fa-brain"></i>
+                              <span class="icon-text">Support</span>
+                           </div>
+                           <div class="reason-number">06</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+      </div>
+
+
+      <div class="divFive" id="testimonials">
+         <section class="headingSec">
+            <h1><span style="background: linear-gradient(135deg, #4A90E2, #357ABD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Uniglobe</span></h1>
+            <p>
+               Their Voices, Our Future: Building a School Where Students Matter. Hear from our students 
+               about their experiences and how Uniglobe Secondary School has shaped their academic journey 
+               and personal growth.
+            </p>
+         </section>
+
+         <section class="firstSec">
+            <section class="subSec"></section>
+
+            <section class="subSec" id="firstComment">
+               <section class="imgSec">
+                  <img src="img/profile-1.jpg" alt="Student's Picture">
+               </section>
+
+               <section class="quoteSec">
+                  <p>
+                     "Uniglobe has been my second home for the past two years. The teachers here are incredibly 
+                     supportive and the facilities are top-notch. I've grown so much academically and personally. 
+                     The Science program has prepared me perfectly for my future studies."
+                  </p>
+
+                  <span class="name">Nehan Karki</span>
+
+                  <span class="rating">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                  </span>
+               </section>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/profile-2.jpg" alt="Student's Picture">
+               </section>
+
+               <section class="quoteSec">
+                  <p>
+                     "The Management program at Uniglobe exceeded my expectations. The practical approach to 
+                     learning business concepts and the guidance from experienced faculty have given me a solid 
+                     foundation. I feel confident about my future career in business."
+                  </p>
+
+                  <span class="name">Prajun Ratna Kansakar</span>
+
+                  <span class="rating">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                  </span>
+               </section>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/profile-3.jpg" alt="Student's Picture">
+               </section>
+
+               <section class="quoteSec">
+                  <p>
+                     "Being part of Uniglobe's Law program has been an incredible journey. The mock trials, 
+                     debates, and real-world case studies have sharpened my analytical skills. The teachers 
+                     are passionate and always encourage critical thinking."
+                  </p>
+
+                  <span class="name">Aayush Panta</span>
+
+                  <span class="rating">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                  </span>
+               </section>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/profile-1.jpg" alt="Student's Picture">
+               </section>
+
+               <section class="quoteSec">
+                  <p>
+                     "The extracurricular activities and sports facilities at Uniglobe are amazing. I've 
+                     developed leadership skills through various clubs and improved my physical fitness. 
+                     The school truly focuses on holistic development."
+                  </p>
+
+                  <span class="name">Nehan Karki</span>
+
+                  <span class="rating">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                  </span>
+               </section>
+            </section>
+
+            <section class="subSec">
+               <section class="imgSec">
+                  <img src="img/profile-2.jpg" alt="Student's Picture">
+               </section>
+
+               <section class="quoteSec">
+                  <p>
+                     "The library and computer labs at Uniglobe are excellent resources for research and 
+                     learning. The modern facilities and supportive staff create the perfect environment 
+                     for academic excellence and personal growth."
+                  </p>
+
+                  <span class="name">Prajun Ratna Kansakar</span>
+
+                  <span class="rating">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                  </span>
+               </section>
+            </section>
+         </section>
+      </div>
+
+
+      <div class="divSix" id="contact">
+         <section class="overlay">
+            <section class="mainSec">
+               <h1>Join Uniglobe Secondary School<br> for Quality Education in Kathmandu</h1>
+               <a href="#">Contact Us</a>
+            </section>
+         </section>
+      </div>
+
+
+      <div class="divSeven" id="about">
+         <section class="headingSec">
+            <h1><span style="background: linear-gradient(135deg, #4A90E2, #357ABD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">About</span> <span style="background: linear-gradient(135deg, #2E5BBA, #1E3A8A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: 'Playfair Display', serif;">Us</span></h1>
+            <p>
+               Uniglobe Secondary School, located in Kathmandu, Nepal, offers +2 programs in Science, Management, and Law. 
+               Founded by experienced educators, the School aims to provide students with a relevant and up-to-date education 
+               that prepares them for success in the 21st century. We believe in building leaders for tomorrow through 
+               transformative education that goes beyond traditional lectures.
+            </p>
+         </section>
+
+         <section class="firstSec">
+            <a href="#">
+               <i class="fa-brands fa-facebook"></i>
+            </a>
+
+            <a href="#">
+               <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="#">
+               <i class="fa-brands fa-youtube"></i>
+            </a>
+
+            <a href="#">
+               <i class="fa-brands fa-twitter"></i>
+            </a>
+         </section>
+      </div>
+
+      <script src="js/index.js"></script>
+      <script src="https://kit.fontawesome.com/ba1e04a511.js" crossorigin="anonymous"></script>
+   </body>
+
+</html>
