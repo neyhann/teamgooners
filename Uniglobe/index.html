@@ -35,7 +35,6 @@
             </section>
          </header>
 
-         <!-- Sidebar Menu -->
          <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                <h3><img src="img/ugsslogo.png" alt="Uniglobe Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px; filter: brightness(1.1) contrast(1.1);"> Uniglobe HSS</h3>
@@ -45,7 +44,6 @@
             </div>
             
             <div class="sidebar-content">
-               <!-- MIS Section -->
                <div class="sidebar-section">
                   <h4><i class="fa-solid fa-laptop"></i> MIS (Management Information System)</h4>
                   <p>Access your academic information and resources.</p>
@@ -56,24 +54,23 @@
                   </div>
                </div>
 
-               <!-- Virtual Tour Section -->
                <div class="sidebar-section">
                   <h4><i class="fa-solid fa-video"></i> Virtual Tour</h4>
                   <p>Experience our campus virtually with our immersive video tour.</p>
                   <div class="video-container">
                      <video id="virtualTourVideo" controls>
-                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                        <source src="img/Uniglobe Walkthrough.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                      </video>
                      <div class="video-controls">
                         <button class="video-btn" onclick="openVideoModal()">
                            <i class="fa-solid fa-play"></i> Full Screen Tour
                         </button>
+                        
                      </div>
                   </div>
                </div>
 
-               <!-- Clubs Section -->
                <div class="sidebar-section">
                   <h4><i class="fa-solid fa-users"></i> Clubs in Uniglobe</h4>
                   <div class="clubs-list">
@@ -136,7 +133,7 @@
                   </div>
                </div>
 
-               <!-- Events Calendar Section -->
+
                <div class="sidebar-section">
                   <h4><i class="fa-solid fa-calendar-alt"></i> Events Calendar</h4>
                   <div class="events-list">
@@ -173,7 +170,6 @@
                   </div>
                </div>
 
-               <!-- FAQ Section -->
                <div class="sidebar-section">
                   <h4><i class="fa-solid fa-question-circle"></i> FAQs</h4>
                   <div class="faq-list">
@@ -198,18 +194,22 @@
             </div>
          </div>
 
-         <!-- Video Modal for Virtual Tour -->
          <div class="video-modal" id="videoModal">
             <div class="video-modal-content">
                <div class="video-modal-header">
                   <h3><i class="fa-solid fa-video"></i> Virtual Campus Tour</h3>
-                  <button class="close-modal" onclick="closeVideoModal()">
-                     <i class="fa-solid fa-times"></i>
-                  </button>
+                  <div class="modal-controls">
+                     <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                        <i class="fa-solid fa-expand"></i>
+                     </button>
+                     <button class="close-modal" onclick="closeVideoModal()">
+                        <i class="fa-solid fa-times"></i>
+                     </button>
+                  </div>
                </div>
                <div class="video-modal-body">
                   <video id="modalVideo" controls>
-                     <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                     <source src="img/Uniglobe Walkthrough.mp4" type="video/mp4">
                      Your browser does not support the video tag.
                   </video>
                </div>
@@ -351,7 +351,6 @@
             </section>
          </section>
 
-         <!-- Why Choose Uniglobe Section -->
          <section class="why-choose-section">
             <div class="why-choose-container">
                <div class="section-header">
@@ -449,15 +448,26 @@
          </section>
 
          <section class="testimonials-carousel">
+            <div class="carousel-status" style="text-align: center; margin-bottom: 20px; color: #32CD32; font-size: 0.9rem;">
+               <i class="fa-solid fa-circle" style="animation: pulse 2s infinite; margin-right: 8px;"></i>
+               Carousel Auto-Rotation Active
+            </div>
             <div class="carousel-container">
+               <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">
+                  <i class="fa-solid fa-chevron-left"></i>
+               </button>
+               
                <div class="carousel-track">
                   <div class="testimonial-card active">
                      <div class="testimonial-header">
                         <div class="profile-image">
-                           <img src="img/profile-1.jpg" alt="Student's Picture">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
                         </div>
                         <div class="student-info">
                            <h4>Nehan Karki</h4>
+                           <span class="student-program">Science Program</span>
                            <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -475,10 +485,13 @@
                   <div class="testimonial-card">
                      <div class="testimonial-header">
                         <div class="profile-image">
-                           <img src="img/profile-2.jpg" alt="Student's Picture">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
                         </div>
                         <div class="student-info">
                            <h4>Prajun Ratna Kansakar</h4>
+                           <span class="student-program">Management Program</span>
                            <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -496,10 +509,13 @@
                   <div class="testimonial-card">
                      <div class="testimonial-header">
                         <div class="profile-image">
-                           <img src="img/profile-3.jpg" alt="Student's Picture">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
                         </div>
                         <div class="student-info">
                            <h4>Aayush Panta</h4>
+                           <span class="student-program">Law Program</span>
                            <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -517,10 +533,13 @@
                   <div class="testimonial-card">
                      <div class="testimonial-header">
                         <div class="profile-image">
-                           <img src="img/profile-1.jpg" alt="Student's Picture">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
                         </div>
                         <div class="student-info">
                            <h4>Sarah Johnson</h4>
+                           <span class="student-program">Science Program</span>
                            <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -538,10 +557,13 @@
                   <div class="testimonial-card">
                      <div class="testimonial-header">
                         <div class="profile-image">
-                           <img src="img/profile-1.jpg" alt="Student's Picture">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
                         </div>
                         <div class="student-info">
                            <h4>Michael Chen</h4>
+                           <span class="student-program">Management Program</span>
                            <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -555,7 +577,83 @@
                         <p>"The library and computer labs at Uniglobe are excellent resources for research and learning. The teachers are always available to help and the study environment is perfect for academic growth."</p>
                      </div>
                   </div>
+
+                  <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <div class="profile-image">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
+                        </div>
+                        <div class="student-info">
+                           <h4>Priya Sharma</h4>
+                           <span class="student-program">Law Program</span>
+                           <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="testimonial-content">
+                        <p>"The debate competitions and MUN sessions at Uniglobe have been transformative. I've learned to think critically, speak confidently, and understand global issues. The school's focus on practical learning is exceptional."</p>
+                     </div>
+                  </div>
+
+                  <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <div class="profile-image">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
+                        </div>
+                        <div class="student-info">
+                           <h4>Rajesh Kumar</h4>
+                           <span class="student-program">Science Program</span>
+                           <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="testimonial-content">
+                        <p>"The science laboratories at Uniglobe are world-class. I've conducted numerous experiments that have deepened my understanding of scientific concepts. The teachers are experts in their fields and always encourage curiosity."</p>
+                     </div>
+                  </div>
+
+                  <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <div class="profile-image">
+                           <div class="profile-avatar">
+                              <i class="fa-solid fa-user"></i>
+                           </div>
+                        </div>
+                        <div class="student-info">
+                           <h4>Emma Wilson</h4>
+                           <span class="student-program">Management Program</span>
+                           <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="testimonial-content">
+                        <p>"The business case studies and entrepreneurship projects at Uniglobe have given me real-world experience. I've learned to analyze market trends, develop business strategies, and present ideas professionally."</p>
+                     </div>
+                  </div>
                </div>
+               
+               <button class="carousel-btn next-btn" onclick="changeSlide(1)">
+                  <i class="fa-solid fa-chevron-right"></i>
+               </button>
             </div>
             
             <div class="carousel-indicators">
@@ -564,6 +662,9 @@
                <span class="indicator" data-slide="2"></span>
                <span class="indicator" data-slide="3"></span>
                <span class="indicator" data-slide="4"></span>
+               <span class="indicator" data-slide="5"></span>
+               <span class="indicator" data-slide="6"></span>
+               <span class="indicator" data-slide="7"></span>
             </div>
          </section>
       </div>

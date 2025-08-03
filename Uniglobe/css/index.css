@@ -453,6 +453,8 @@ p{
    width: 100%;
    border-radius: 16px;
    background: #000;
+   max-height: 200px;
+   object-fit: cover;
 }
 
 .video-controls {
@@ -591,30 +593,118 @@ p{
 .video-modal {
    display: none;
    position: fixed;
-   z-index: 2000;
+   z-index: 9999;
    left: 0;
    top: 0;
    width: 100%;
    height: 100%;
    background-color: rgba(0, 0, 0, 0.9);
-   backdrop-filter: blur(5px);
+   transition: all 0.3s ease;
+}
+
+/* Lights off effect for body when modal is open */
+body.modal-open {
+   overflow: hidden;
+}
+
+body.modal-open::before {
+   content: '';
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.8);
+   z-index: 9998;
+   pointer-events: none;
+}
+
+body.modal-open .video-modal {
+   z-index: 9999;
 }
 
 .video-modal.show {
    display: flex;
    justify-content: center;
    align-items: center;
+   animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+/* Fullscreen styles */
+.video-modal:fullscreen {
+   background: #000;
+   padding: 0;
+}
+
+.video-modal:fullscreen .video-modal-content {
+   width: 100%;
+   height: 100%;
+   max-width: none;
+   max-height: none;
+   border-radius: 0;
+   background: #000;
+}
+
+.video-modal:fullscreen .video-modal-body video {
+   width: 100%;
+   height: 100%;
+   max-height: none;
+   object-fit: contain;
+}
+
+/* Webkit fullscreen support */
+.video-modal:-webkit-full-screen {
+   background: #000;
+   padding: 0;
+}
+
+.video-modal:-webkit-full-screen .video-modal-content {
+   width: 100%;
+   height: 100%;
+   max-width: none;
+   max-height: none;
+   border-radius: 0;
+   background: #000;
+}
+
+.video-modal:-webkit-full-screen .video-modal-body video {
+   width: 100%;
+   height: 100%;
+   max-height: none;
+   object-fit: contain;
 }
 
 .video-modal-content {
-   background: #1a1a1a;
+   background: #000;
    border-radius: 16px;
-   width: 90%;
-   max-width: 800px;
-   max-height: 90vh;
-   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+   width: 95%;
+   max-width: 1200px;
+   max-height: 95vh;
+   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
    overflow: hidden;
    position: relative;
+   border: 2px solid rgba(255, 255, 255, 0.2);
+   animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+   0% {
+      opacity: 0;
+      transform: scale(0.9) translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+   }
 }
 
 .video-modal-header {
@@ -622,8 +712,30 @@ p{
    justify-content: space-between;
    align-items: center;
    padding: 20px;
-   background: rgba(0, 0, 0, 0.3);
+   background: rgba(0, 0, 0, 0.5);
    border-bottom: 1px solid #444;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-controls {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}
+
+.fullscreen-btn {
+   background: none;
+   border: none;
+   color: #fff;
+   font-size: 1.2rem;
+   cursor: pointer;
+   padding: 8px;
+   border-radius: 4px;
+   transition: background-color 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .video-modal-header h3 {
@@ -655,9 +767,11 @@ p{
 .video-modal-body video {
    width: 100%;
    height: auto;
-   max-height: 70vh;
+   max-height: 80vh;
    display: block;
-   border-radius: 16px;
+   border-radius: 0;
+   background: #000;
+   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Clubs Section Styles */
@@ -1732,29 +1846,64 @@ p{
    background: rgba(255, 255, 255, 0.1);
    backdrop-filter: blur(15px);
    border: 1px solid rgba(255, 255, 255, 0.2);
-   padding: 40px;
+   padding: 40px 80px;
 }
 
 .carousel-track {
-   display: flex;
-   transition: transform 0.8s ease-in-out;
+   position: relative;
+   width: 100%;
+   height: 400px;
+   overflow: hidden;
 }
 
 .testimonial-card {
    min-width: 100%;
    opacity: 0;
-   transform: translateX(100%);
-   transition: all 0.8s ease-in-out;
+   transform: translateX(100%) scale(0.9);
+   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
    background: rgba(255, 255, 255, 0.95);
    border-radius: 20px;
    border: 2px solid rgba(50, 205, 50, 0.3);
    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
    overflow: hidden;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
 }
 
 .testimonial-card.active {
    opacity: 1;
-   transform: translateX(0);
+   transform: translateX(0) scale(1);
+   animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+   0% {
+      opacity: 0;
+      transform: translateX(50px) scale(0.9);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+   }
+}
+
+.testimonial-card::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(50, 205, 50, 0.05));
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   pointer-events: none;
+}
+
+.testimonial-card:hover::before {
+   opacity: 1;
 }
 
 .testimonial-header {
@@ -1773,12 +1922,34 @@ p{
    border: 3px solid rgba(255, 255, 255, 0.8);
    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
    flex-shrink: 0;
+   background: linear-gradient(135deg, #4A90E2, #357ABD);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.profile-avatar {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: linear-gradient(135deg, #4A90E2, #357ABD);
+}
+
+.profile-avatar i {
+   font-size: 2rem;
+   color: white;
 }
 
 .profile-image img {
    width: 100%;
    height: 100%;
    object-fit: cover;
+}
+
+.student-info {
+   flex: 1;
 }
 
 .student-info h4 {
@@ -1788,6 +1959,17 @@ p{
    margin: 0 0 8px 0;
    font-family: 'Inter', sans-serif;
    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.student-program {
+   display: block;
+   font-size: 0.9rem;
+   color: rgba(255, 255, 255, 0.9);
+   font-weight: 500;
+   margin-bottom: 8px;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .rating {
@@ -1814,6 +1996,60 @@ p{
    font-style: italic;
    text-align: left;
    font-family: 'Inter', sans-serif;
+   position: relative;
+   padding-left: 2.5rem;
+}
+
+.testimonial-content p::before {
+   content: '"';
+   font-size: 3.5rem;
+   color: #32CD32;
+   position: absolute;
+   left: 0;
+   top: -0.8rem;
+   font-family: serif;
+   opacity: 0.7;
+}
+
+.carousel-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background: rgba(74, 144, 226, 0.9);
+   border: none;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s ease;
+   z-index: 10;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.carousel-btn:hover {
+   background: rgba(74, 144, 226, 1);
+   transform: translateY(-50%) scale(1.1);
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-btn i {
+   color: white;
+   font-size: 1.2rem;
+}
+
+.prev-btn {
+   left: 15px;
+}
+
+.next-btn {
+   right: 15px;
 }
 
 .carousel-indicators {
@@ -1821,11 +2057,12 @@ p{
    justify-content: center;
    gap: 12px;
    margin-top: 30px;
+   flex-wrap: wrap;
 }
 
 .indicator {
-   width: 12px;
-   height: 12px;
+   width: 14px;
+   height: 14px;
    border-radius: 50%;
    background: rgba(255, 255, 255, 0.3);
    cursor: pointer;
@@ -1837,11 +2074,26 @@ p{
    background: #32CD32;
    box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
    border-color: rgba(255, 255, 255, 0.5);
+   transform: scale(1.3);
+   animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+   0% {
+      box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
+   }
+   50% {
+      box-shadow: 0 0 25px rgba(50, 205, 50, 0.8);
+   }
+   100% {
+      box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
+   }
 }
 
 .indicator:hover {
    background: rgba(50, 205, 50, 0.7);
    transform: scale(1.2);
+   box-shadow: 0 2px 6px rgba(50, 205, 50, 0.3);
 }
 
 /* Universal scrollbar styling */
