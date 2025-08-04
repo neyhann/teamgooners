@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniglobe Secondary School - Student Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Role Selection Section -->
+    <div id="roleSelectionSection" class="section active">
+        <div class="role-selection-container">
+            <div class="role-selection-header">
+                <img src="img/logo.jpg" alt="Uniglobe College" class="logo">
+                <h1>Uniglobe Secondary School</h1>
+                <h2>Kamladi, Kathmandu</h2>
+                <p>Please select your role to continue</p>
+            </div>
+            <div class="role-cards">
+                <div class="role-card" data-role="student">
+                    <div class="role-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student</h3>
+                    <p>Access your profile, attendance, assignments, and academic calendar</p>
+                    <button class="btn-role-select">Continue as Student</button>
+                </div>
+                <div class="role-card" data-role="admin">
+                    <div class="role-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Administrator</h3>
+                    <p>Manage students, attendance, marksheets, and system settings</p>
+                    <button class="btn-role-select">Continue as Admin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div id="loginSection" class="section">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="img/logo.jpg" alt="Uniglobe College" class="logo">
+                <h1>Uniglobe Secondary School</h1>
+                <h2 id="loginTitle">Student Management Information System</h2>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p class="demo-info" id="demoInfo">Demo: prajun.kansakar@uniglobe.edu / student123</p>
+            </form>
+            <button id="backToRoleBtn" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Role Selection
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboardSection" class="section">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <button class="hamburger-menu" id="hamburgerMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <img src="img/logo.jpg" alt="Uniglobe School Logo" class="top-logo">
+                <h2>Uniglobe Secondary School, Kamladi</h2>
+            </div>
+            <div class="top-bar-right">
+                <div class="user-profile-dropdown">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Prajun Ratna Kansakar</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" id="chatbotBtn">
+                            <i class="fas fa-robot"></i> AI Assistant
+                        </a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-link" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-link" data-section="fee">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Fee</span>
+                </a>
+                <a href="#" class="nav-link" data-section="attendance">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Attendance</span>
+                </a>
+                <a href="#" class="nav-link" data-section="leave">
+                    <i class="fas fa-calendar-times"></i>
+                    <span>Leave</span>
+                </a>
+                <a href="#" class="nav-link" data-section="assignments">
+                    <i class="fas fa-book"></i>
+                    <span>Assignments</span>
+                </a>
+                <a href="#" class="nav-link" data-section="eca">
+                    <i class="fas fa-running"></i>
+                    <span>ECA</span>
+                </a>
+                <a href="#" class="nav-link" data-section="chatbot">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+        <a href="#" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeYCTcYlIFTrXaMDsNblsIP-P1gLmst5KyxsDkyc-OYv3-X9g/viewform?usp=sharing&ouid=114006638985883816168', '_blank'); return false;" class="nav-link">
+    <i class="fas fa-star-half-alt"></i>
+    <span>College Management's Evaluation</span>
+</a>
+
+              <a href="/index.html" onclick="window.open('/index.html', '_blank'); return false;" class="nav-link">
+    <i class="fas fa-globe"></i>
+    <span>Uniglobe's Website</span>
+</a>
+
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="content-wrapper">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="content-section active">
+                    <div class="dashboard-grid">
+                        <!-- Calendar Section -->
+                        <div class="calendar-section">
+                            <div class="calendar-header">
+                                <h3>August 2025</h3>
+                                <div class="calendar-nav">
+                                    <button class="btn-nav" id="prevMonth">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="btn-nav" id="nextMonth">
+                                        <i class="fas fa-chevron-right"></i>
+                </button>
+                                </div>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-weekdays">
+                                    <div>Sun</div>
+                                    <div>Mon</div>
+                                    <div>Tue</div>
+                                    <div>Wed</div>
+                                    <div>Thu</div>
+                                    <div>Fri</div>
+                                    <div>Sat</div>
+                                </div>
+                                <div id="calendarDays" class="calendar-days"></div>
+                            </div>
+                        </div>
+
+                        <!-- My Subject Teachers -->
+                        <div class="subject-teachers-section">
+                            <h3>My Subject Teachers</h3>
+                            <div class="teachers-list" id="teachersList">
+                                <!-- Teachers will be populated by JavaScript -->
+                            </div>
+                    </div>
+
+                        <!-- Notice Board -->
+                        <div class="notice-board-section">
+                            <h3>Notice Board</h3>
+                            <div class="notices-list" id="noticesList">
+                                <!-- Notices will be populated by JavaScript -->
+                    </div>
+                    </div>
+
+                        <!-- My Assignments -->
+                        <div class="assignments-section">
+                            <h3>My Assignments</h3>
+                            <div class="assignments-list" id="assignmentsList">
+                                <!-- Assignments will be populated by JavaScript -->
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+        <!-- Profile Section -->
+                <div id="profileSection" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-user"></i> Student Profile</h2>
+            </div>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-info">
+                                    <h3 id="studentName">Prajun Ratna Kansakar</h3>
+                                    <p id="studentId">UGSS2025001</p>
+                                    <p id="studentGrade">Grade 11 - Science</p>
+                                    <p id="studentSection">Section A</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-group">
+                            <label>Email:</label>
+                                    <span id="studentEmail">prajun.kansakar@uniglobe.edu</span>
+                        </div>
+                        <div class="detail-group">
+                            <label>Phone:</label>
+                            <span id="studentPhone">+977-9841234567</span>
+                        </div>
+                        <div class="detail-group">
+                            <label>Date of Birth:</label>
+                                    <span id="studentDOB">March 15, 2008</span>
+                        </div>
+                        <div class="detail-group">
+                            <label>Gender:</label>
+                            <span id="studentGender">Male</span>
+                        </div>
+                        <div class="detail-group">
+                            <label>Address:</label>
+                                    <span id="studentAddress">Kamladi, Kathmandu, Nepal</span>
+                        </div>
+                        <div class="detail-group">
+                            <label>Enrollment Date:</label>
+                                    <span id="studentEnrollment">April 15, 2025</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Parent/Guardian:</label>
+                                    <span id="studentParent">Ratna Kansakar</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Parent Contact:</label>
+                                    <span id="studentParentContact">+977-9851234567</span>
+                        </div>
+                    </div>
+                    <button class="btn-edit-profile">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+                <!-- Fee Section -->
+                <div id="feeSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-money-bill-wave"></i> Fee Management</h2>
+                    </div>
+                    <div class="fee-container">
+                        <div class="fee-summary">
+                            <div class="summary-card">
+                                <h3>Total Fee</h3>
+                                <div class="fee-amount">
+                                    <span id="totalFee">Rs. 85,000</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Paid Amount</h3>
+                                <div class="fee-amount">
+                                    <span id="paidAmount">Rs. 60,000</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Due Amount</h3>
+                                <div class="fee-amount due">
+                                    <span id="dueAmount">Rs. 25,000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fee-details">
+                            <h3>Fee Breakdown</h3>
+                            <div class="fee-table-container">
+                                <table class="fee-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Fee Type</th>
+                                            <th>Amount</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="feeTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attendance Section -->
+                <div id="attendanceSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-check-circle"></i> Attendance Management</h2>
+                    </div>
+                    <div class="attendance-container">
+                        <div class="attendance-summary">
+                            <div class="summary-card">
+                                <h3>Overall Attendance</h3>
+                                <div class="attendance-percentage">
+                                    <span id="overallPercentage">92%</span>
+                                </div>
+                                <div class="attendance-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Present</span>
+                                        <span class="stat-value" id="presentCount">138</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Absent</span>
+                                        <span class="stat-value" id="absentCount">12</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Late</span>
+                                        <span class="stat-value" id="lateCount">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="attendance-details">
+                            <div class="filter-controls">
+                                <select id="subjectFilter">
+                                    <option value="">All Subjects</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English">English</option>
+                                    <option value="Nepali">Nepali</option>
+                                </select>
+                                <input type="date" id="startDate">
+                                <input type="date" id="endDate">
+                                <button id="filterAttendance" class="btn-primary">Filter</button>
+                            </div>
+                            <div class="attendance-table-container">
+                                <table class="attendance-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Subject</th>
+                                            <th>Status</th>
+                                            <th>Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="attendanceTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leave Section -->
+                <div id="leaveSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-calendar-times"></i> Leave Management</h2>
+                        <button class="btn-add-leave">
+                            <i class="fas fa-plus"></i> Apply Leave
+                        </button>
+                    </div>
+                    <div class="leave-container">
+                        <div class="leave-summary">
+                            <div class="summary-card">
+                                <h3>Leave Balance</h3>
+                                <div class="leave-balance">
+                                    <span id="leaveBalance">15 days</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Used Leave</h3>
+                                <div class="leave-used">
+                                    <span id="usedLeave">5 days</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leave-history">
+                            <h3>Leave History</h3>
+                            <div class="leave-table-container">
+                                <table class="leave-table">
+                                    <thead>
+                                        <tr>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Type</th>
+                                            <th>Reason</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="leaveTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assignments Section -->
+                <div id="assignmentsSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-book"></i> Assignments</h2>
+                    </div>
+                    <div class="assignments-container">
+                        <div class="assignments-summary">
+                            <div class="summary-card">
+                                <h3>Total Assignments</h3>
+                                <div class="assignment-count">
+                                    <span id="totalAssignments">24</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Submitted</h3>
+                                <div class="assignment-count">
+                                    <span id="submittedAssignments">20</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Pending</h3>
+                                <div class="assignment-count pending">
+                                    <span id="pendingAssignments">4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assignments-filters">
+                            <select id="assignmentSubjectFilter">
+                                <option value="">All Subjects</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="English">English</option>
+                                <option value="Nepali">Nepali</option>
+                            </select>
+                            <select id="assignmentStatusFilter">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="submitted">Submitted</option>
+                                <option value="graded">Graded</option>
+                            </select>
+                            <button id="filterAssignments" class="btn-primary">Filter</button>
+                        </div>
+                        <div class="assignments-table-container">
+                            <table class="assignments-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Assignment</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Score</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="assignmentsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other sections will be added here -->
+        <div id="calendarSection" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar"></i> Academic Calendar</h2>
+            </div>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prevMonth" class="btn-nav">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                            <h3 id="currentMonth">August 2025</h3>
+                    <button id="nextMonth" class="btn-nav">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+                <div class="calendar-events">
+                    <h4>Upcoming Events</h4>
+                    <div id="eventsList" class="events-list"></div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Exam Result Section -->
+                <div id="exam-result" class="content-section">
+            <div class="section-header">
+                        <h2><i class="fas fa-graduation-cap"></i> Exam Results</h2>
+            </div>
+                    <div class="exam-result-container">
+                        <div class="exam-summary">
+                    <div class="summary-card">
+                                <h3>Current Term GPA</h3>
+                                <div class="gpa-display">
+                                    <span id="currentGPA">3.85</span>
+                        </div>
+                                <div class="gpa-scale">
+                                    <span>Scale: 4.0</span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="exam-details">
+                            <div class="exam-selector">
+                                <label>Select Exam:</label>
+                                <select id="examSelect">
+                                    <option value="midterm">Mid Term Exam</option>
+                                    <option value="final">Final Term Exam</option>
+                                    <option value="unit">Unit Tests</option>
+                        </select>
+                    </div>
+                            <div class="exam-table-container">
+                                <table class="exam-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                            <th>Full Marks</th>
+                                            <th>Obtained</th>
+                                            <th>Percentage</th>
+                                            <th>Grade</th>
+                                </tr>
+                            </thead>
+                                    <tbody id="examTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Notice Board Section -->
+                <div id="noticeBoardSection" class="content-section">
+            <div class="section-header">
+                        <h2><i class="fas fa-bullhorn"></i> Notice Board</h2>
+            </div>
+                    <div class="notice-board-container">
+                        <div class="notices-list" id="fullNoticesList">
+                            <!-- Full notices list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ECA Section -->
+                <div id="ecaSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-running"></i> Extra Curricular Activities</h2>
+                    </div>
+                    <div class="eca-container">
+                        <div class="eca-summary">
+                            <div class="summary-card">
+                                <h3>Total Events</h3>
+                                <div class="eca-count">
+                                    <span id="totalEcaEvents">5</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Participated</h3>
+                                <div class="eca-count">
+                                    <span id="participatedEvents">5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eca-table-container">
+                            <table class="eca-table">
+                        <thead>
+                            <tr>
+                                        <th>Event</th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Achievement</th>
+                            </tr>
+                        </thead>
+                                <tbody id="ecaTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+                <!-- Syllabus Section -->
+                <div id="syllabusSection" class="content-section">
+            <div class="section-header">
+                        <h2><i class="fas fa-file-alt"></i> Syllabus</h2>
+            </div>
+                    <div class="syllabus-container" id="syllabusContainer">
+                        <!-- Syllabus content will be populated by JavaScript -->
+                    </div>
+                </div>
+
+
+
+                <!-- Chatbot Section -->
+                <div id="chatbotSection" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-robot"></i> AI Assistant</h2>
+                    </div>
+                    <div class="chatbot-container">
+                        <iframe
+                            src="https://www.chatbase.co/chatbot-iframe/r_J3mkZ3QVT-ETZY0Wu6N"
+                            width="100%"
+                            style="height: 100%; min-height: 700px"
+                            frameborder="0"
+                        ></iframe>
+                    </div>
+                </div>
+
+                <!-- Other sections placeholder -->
+                <div id="otherSections" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-cog"></i> Coming Soon</h2>
+                    </div>
+                    <div class="coming-soon">
+                        <p>This feature is under development and will be available soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modals -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Event</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label>Event Title:</label>
+                    <input type="text" id="eventTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea id="eventDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Start Date:</label>
+                    <input type="date" id="eventStartDate" required>
+                </div>
+                <div class="form-group">
+                    <label>End Date:</label>
+                    <input type="date" id="eventEndDate">
+                </div>
+                <div class="form-group">
+                    <label>Event Type:</label>
+                    <select id="eventType">
+                        <option value="exam">Exam</option>
+                        <option value="assignment">Assignment</option>
+                        <option value="holiday">Holiday</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Location:</label>
+                    <input type="text" id="eventLocation">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary modal-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="leaveModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Apply for Leave</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="leaveForm">
+                <div class="form-group">
+                    <label>Leave Type:</label>
+                    <select id="leaveType" required>
+                        <option value="">Select Leave Type</option>
+                        <option value="sick">Sick Leave</option>
+                        <option value="personal">Personal Leave</option>
+                        <option value="emergency">Emergency Leave</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>From Date:</label>
+                    <input type="date" id="leaveFromDate" required>
+                </div>
+                <div class="form-group">
+                    <label>To Date:</label>
+                    <input type="date" id="leaveToDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Reason:</label>
+                    <textarea id="leaveReason" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary modal-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js">
+        
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="r_J3mkZ3QVT-ETZY0Wu6N";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+</body>
+</html> 
