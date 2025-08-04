@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="role-selection-container">
+        <div class="role-selection-header">
+            <img src="img/logo.jpg" alt="Uniglobe College" class="logo">
+            <h1>Uniglobe Secondary School</h1>
+            <h2>Kamladi, Kathmandu</h2>
+            <p>Please select your role to continue</p>
+        </div>
+        <div class="role-cards">
+            <div class="role-card" data-role="student">
+                <div class="role-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Student</h3>
+                <p>Access your profile, attendance, assignments, and academic calendar</p>
+                <button class="btn-role-select">Continue as Student</button>
+            </div>
+            <div class="role-card" data-role="admin">
+                <div class="role-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Administrator</h3>
+                <p>Manage students, attendance, marksheets, and system settings</p>
+                <button class="btn-role-select">Continue as Admin</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('Test page loaded');
+        document.querySelectorAll('.btn-role-select').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const role = this.closest('.role-card').dataset.role;
+                alert('Role selected: ' + role);
+            });
+        });
+    </script>
+</body>
+</html> 
